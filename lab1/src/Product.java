@@ -5,5 +5,13 @@ public abstract class Product {
         this.title = title;
         this.id = id;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getTitle(){
+        return title;
+    }
     abstract double getPrice(int dagen);
 }
