@@ -8,6 +8,7 @@ public class Shop {
 
     private ArrayList<String> productTitles;
     private ArrayList<String> productTypes;
+
     private ArrayList<String> productIds;
 
     public Shop()
