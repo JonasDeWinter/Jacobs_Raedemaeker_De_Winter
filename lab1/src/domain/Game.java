@@ -1,3 +1,5 @@
+package domain;
+
 public class Game extends Product {
     private double prijs = 3;
     public Game(String title, int id){

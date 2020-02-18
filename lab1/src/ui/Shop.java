@@ -1,3 +1,8 @@
+package ui;
+
+import domain.Film;
+import domain.Game;
+import domain.Product;
 
 import java.util.ArrayList;
 
@@ -35,13 +40,19 @@ public class Shop {
 
     public static void addProduct(Shop shop) {
         String title = JOptionPane.showInputDialog("Enter the title:");
-        String id = JOptionPane.showInputDialog("Enter the id:");
+        for (Product p:shop.producten){
+            if (p.getTitle().equals(title))throw new IllegalArgumentException("Dit item staat al in de lijst");
+        }
+        //String id = JOptionPane.showInputDialog("Enter the id:");
         String type = JOptionPane.showInputDialog("Enter the type (M for movie/G for game):");
+        if(!type.equals("M") && !type.equals("G"))throw new IllegalArgumentException("Moet G of M zijn");
+
+        int intId = shop.producten.size()+1;
 
         if(type.equalsIgnoreCase("M")){
-            shop.producten.add(new Film(title,Integer.parseInt(id)));
+            shop.producten.add(new Film(title,intId));
         }else if(type.equalsIgnoreCase("G")){
-            shop.producten.add(new Game(title,Integer.parseInt(id)) );
+            shop.producten.add(new Game(title,intId) );
         }
     }
 
@@ -50,6 +61,7 @@ public class Shop {
         int integerid = Integer.parseInt(id);
         String title = "";
         boolean found = false;
+        if (integerid > shop.producten.size() || integerid < 0)throw new IllegalArgumentException("dit is een fout id");
         for(int i = 0; i < shop.producten.size() && !found; i++)
         {
             if(shop.producten.get(i).getId() == integerid)
@@ -67,6 +79,8 @@ public class Shop {
     public static void showPrice(Shop shop){
         String id = JOptionPane.showInputDialog("Enter the id:");
         int integerid = Integer.parseInt(id);
+        if (integerid > shop.producten.size() || integerid < 0)throw new IllegalArgumentException("dit is een fout id");
+
         int idx = -1;
         boolean found = false;
         for(int i = 0; i < shop.producten.size() && !found; i++){
@@ -78,6 +92,7 @@ public class Shop {
         if(found){
             String daysString = JOptionPane.showInputDialog("Enter the number of days:");
             int days = Integer.parseInt(daysString);
+            if (days < 0)throw new IllegalArgumentException("mag niet kleinder dan 0 zijn");
             JOptionPane.showMessageDialog(null, shop.producten.get(idx).getPrice(days));
         }
     }

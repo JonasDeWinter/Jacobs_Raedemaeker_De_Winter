@@ -1,3 +1,5 @@
+package domain;
+
 public abstract class Product {
     private String title;
     private int id;
@@ -13,5 +15,5 @@ public abstract class Product {
     public String getTitle(){
         return title;
     }
-    abstract double getPrice(int dagen);
+    public abstract double getPrice(int dagen);
 }

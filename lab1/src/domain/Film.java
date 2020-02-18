@@ -1,3 +1,5 @@
+package domain;
+
 public class Film extends Product {
     private  double prijs = 5;
     public Film(String title, int id){
