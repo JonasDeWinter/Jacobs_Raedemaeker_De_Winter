@@ -26,6 +26,7 @@ public class ShopUI {
 
         ShopUI shopui = new ShopUI();
 
+        shopui.shop.load();
         String menu = "1. Add product\n2. Show product\n3. Show rental price\n\n0. Quit";
         int choice = -1;
         while (choice != 0) {

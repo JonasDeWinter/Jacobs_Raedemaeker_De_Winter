@@ -13,6 +13,7 @@ import java.util.Scanner;
 public class ProductDB {
     private Map<Integer, Product> producten ;
     private File file = new File("Shop.txt");
+
     public ProductDB(){
         producten = new HashMap<>();
     }
@@ -35,7 +36,7 @@ public class ProductDB {
             Scanner scanner = new Scanner(file);
             while(scanner.hasNextLine()){
                 Scanner scannerline = new Scanner(scanner.nextLine());
-                scannerline.useDelimiter(",");
+                scannerline.useDelimiter(", ");
                 String titel = scannerline.next();
                 String type = scannerline.next();
                 int intId = producten.size()+1;
@@ -58,8 +59,9 @@ public class ProductDB {
 
             for (Product p:producten.values()){
                 writer.println(p.getTitle() +", " + p.getClass().getSimpleName());
-                writer.close();
+
             }
+            writer.close();
         }catch (Exception e){
             throw new IllegalArgumentException("file niet gevonden",e);
         }
