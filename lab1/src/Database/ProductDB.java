@@ -2,8 +2,11 @@ package Database;
 
 import Model.Product;
 
+import java.io.File;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class ProductDB {
     private Map<Integer, Product> producten ;
@@ -23,5 +26,19 @@ public class ProductDB {
     public Product showProduct(int index){
 
         return producten.get(index);
+    }
+
+    public void save(){
+        File file = new File("Shop.txt");
+
+        try{
+            PrintWriter writer = new PrintWriter(file);
+
+            for (Product p:producten.values()){
+                writer.println(p.getTitle() +", " + p.getClass().getSimpleName());
+            }
+        }catch (Exception e){
+            throw new IllegalArgumentException("file niet gevonden",e);
+        }
     }
 }

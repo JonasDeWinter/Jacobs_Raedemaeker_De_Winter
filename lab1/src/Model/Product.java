@@ -10,5 +10,6 @@ public abstract class Product {
     public String getTitle(){
         return title;
     }
+
     public abstract double getPrice(int dagen);
 }
