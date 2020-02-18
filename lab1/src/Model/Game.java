@@ -1,4 +1,4 @@
-package domain;
+package Model;
 
 public class Game extends Product {
     private double prijs = 3;

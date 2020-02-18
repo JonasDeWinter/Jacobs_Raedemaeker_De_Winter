@@ -1,4 +1,4 @@
-package domain;
+package Model;
 
 public class Film extends Product {
     private  double prijs = 5;

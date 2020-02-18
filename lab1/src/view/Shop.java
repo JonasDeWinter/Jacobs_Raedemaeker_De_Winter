@@ -1,8 +1,8 @@
-package ui;
+package view;
 
-import domain.Film;
-import domain.Game;
-import domain.Product;
+import Model.Film;
+import Model.Game;
+import Model.Product;
 
 import java.util.ArrayList;
 
@@ -78,6 +78,7 @@ public class Shop {
 
     public static void showPrice(Shop shop){
         String id = JOptionPane.showInputDialog("Enter the id:");
+        if (id.isEmpty())throw new IllegalArgumentException("id mag niet leeg zijn");
         int integerid = Integer.parseInt(id);
         if (integerid > shop.producten.size() || integerid < 0)throw new IllegalArgumentException("dit is een fout id");
 

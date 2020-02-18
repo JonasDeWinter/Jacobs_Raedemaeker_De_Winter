@@ -1,4 +1,4 @@
-package domain;
+package Model;
 
 public abstract class Product {
     private String title;
