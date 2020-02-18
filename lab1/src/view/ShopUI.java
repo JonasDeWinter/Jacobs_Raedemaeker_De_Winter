@@ -42,19 +42,15 @@ public class ShopUI {
 
     public static void addProduct(ShopUI shopui) {
         String title = JOptionPane.showInputDialog("Enter the title:");
-        for (Product p:shopui.producten){
-            if (p.getTitle().equals(title))throw new IllegalArgumentException("Dit item staat al in de lijst");
-        }
-        //String id = JOptionPane.showInputDialog("Enter the id:");
+        if (title.isEmpty())throw new IllegalArgumentException("titel mag niet leeg zijn");
+
         String type = JOptionPane.showInputDialog("Enter the type (M for movie/G for game):");
         if(!type.equals("M") && !type.equals("G"))throw new IllegalArgumentException("Moet G of M zijn");
 
-        int intId = shopui.producten.size()+1;
-
         if(type.equalsIgnoreCase("M")){
-            shopui.producten.add(new Film(title,intId));
+            shopui.shop.addProduct(new Film(title));
         }else if(type.equalsIgnoreCase("G")){
-            shopui.producten.add(new Game(title,intId) );
+            shopui.shop.addProduct(new Game(title) );
         }
     }
 

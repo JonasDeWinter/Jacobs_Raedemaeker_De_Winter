@@ -2,8 +2,8 @@ package Model;
 
 public class Film extends Product {
     private  double prijs = 5;
-    public Film(String title, int id){
-        super(title, id);
+    public Film(String title){
+        super(title);
     }
 
     public double getPrice(int dagen){
