@@ -19,7 +19,7 @@ public class ShopUI {
     {
 
         shop =  new Shop();
-        shop.load();
+
     }
 
     public static void main(String[] args) {

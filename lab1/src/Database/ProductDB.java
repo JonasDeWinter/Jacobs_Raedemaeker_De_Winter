@@ -35,13 +35,14 @@ public class ProductDB {
             Scanner scanner = new Scanner(file);
             while(scanner.hasNextLine()){
                 Scanner scannerline = new Scanner(scanner.nextLine());
-                scannerline.useDelimiter(", ");
+                scannerline.useDelimiter(",");
                 String titel = scannerline.next();
                 String type = scannerline.next();
+                int intId = producten.size()+1;
                 if(type.equalsIgnoreCase("Game")){
-                    this.addProduct(new Game(titel));
+                    producten.put(intId,new Game(titel));
                 }else if(type.equalsIgnoreCase("Film")){
-                    this.addProduct(new Film(titel));
+                    producten.put(intId,new Game(titel));
                 }
             }
         }catch(Exception e){
@@ -57,6 +58,7 @@ public class ProductDB {
 
             for (Product p:producten.values()){
                 writer.println(p.getTitle() +", " + p.getClass().getSimpleName());
+                writer.close();
             }
         }catch (Exception e){
             throw new IllegalArgumentException("file niet gevonden",e);
