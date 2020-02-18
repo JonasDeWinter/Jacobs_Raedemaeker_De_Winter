@@ -17,8 +17,9 @@ public class ShopUI {
 
     public ShopUI()
     {
-        shop =  new Shop();
 
+        shop =  new Shop();
+        shop.load();
     }
 
     public static void main(String[] args) {
@@ -38,6 +39,7 @@ public class ShopUI {
                 showPrice(shopui);
             }
         }
+        shopui.shop.save();
     }
 
     public static void addProduct(ShopUI shopui) {

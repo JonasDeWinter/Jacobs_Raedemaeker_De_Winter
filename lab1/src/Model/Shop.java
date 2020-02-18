@@ -23,4 +23,12 @@ public class Shop {
         if (dagen < 0)throw new IllegalArgumentException("mag niet kleinder dan 0 zijn");
         return producten.showProduct(id).getPrice(dagen);
     }
+
+    public void save(){
+        producten.save();
+    }
+
+    public void load(){
+        producten.load();
+    }
 }

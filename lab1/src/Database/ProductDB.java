@@ -1,5 +1,7 @@
 package Database;
 
+import Model.Film;
+import Model.Game;
 import Model.Product;
 
 import java.io.File;
@@ -10,7 +12,7 @@ import java.util.Scanner;
 
 public class ProductDB {
     private Map<Integer, Product> producten ;
-
+    private File file = new File("Shop.txt");
     public ProductDB(){
         producten = new HashMap<>();
     }
@@ -28,8 +30,27 @@ public class ProductDB {
         return producten.get(index);
     }
 
+    public void load(){
+        try{
+            Scanner scanner = new Scanner(file);
+            while(scanner.hasNextLine()){
+                Scanner scannerline = new Scanner(scanner.nextLine());
+                scannerline.useDelimiter(", ");
+                String titel = scannerline.next();
+                String type = scannerline.next();
+                if(type.equalsIgnoreCase("Game")){
+                    this.addProduct(new Game(titel));
+                }else if(type.equalsIgnoreCase("Film")){
+                    this.addProduct(new Film(titel));
+                }
+            }
+        }catch(Exception e){
+            throw new IllegalArgumentException("file niet gevonden", e);
+        }
+
+    }
     public void save(){
-        File file = new File("Shop.txt");
+
 
         try{
             PrintWriter writer = new PrintWriter(file);
