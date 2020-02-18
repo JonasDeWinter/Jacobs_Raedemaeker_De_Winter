@@ -49,7 +49,7 @@ public class ShopUI {
 
         if(type.equalsIgnoreCase("M")){
             shopui.shop.addProduct(new Film(title));
-        }else if(type.equalsIgnoreCase("G")){
+        }else{
             shopui.shop.addProduct(new Game(title) );
         }
     }
@@ -57,42 +57,20 @@ public class ShopUI {
     public static void showProduct(ShopUI shopui){
         String id = JOptionPane.showInputDialog("Enter the id:");
         int integerid = Integer.parseInt(id);
-        String title = "";
-        boolean found = false;
-        if (integerid > shopui.producten.size() || integerid < 0)throw new IllegalArgumentException("dit is een fout id");
-        for(int i = 0; i < shopui.producten.size() && !found; i++)
-        {
-            if(shopui.producten.get(i).getId() == integerid)
-            {
-                title = shopui.producten.get(i).getTitle();
-                found = true;
-            }
-        }
-        if(found)
-        {
-            JOptionPane.showMessageDialog(null, title);
-        }
+
+            JOptionPane.showMessageDialog(null, shopui.shop.showProduct(integerid));
+
     }
 
     public static void showPrice(ShopUI shopui){
         String id = JOptionPane.showInputDialog("Enter the id:");
         if (id.isEmpty())throw new IllegalArgumentException("id mag niet leeg zijn");
         int integerid = Integer.parseInt(id);
-        if (integerid > shopui.producten.size() || integerid < 0)throw new IllegalArgumentException("dit is een fout id");
 
-        int idx = -1;
-        boolean found = false;
-        for(int i = 0; i < shopui.producten.size() && !found; i++){
-            if(shopui.producten.get(i).getId() == integerid){
-                idx = i;
-                found = true;
-            }
-        }
-        if(found){
             String daysString = JOptionPane.showInputDialog("Enter the number of days:");
             int days = Integer.parseInt(daysString);
-            if (days < 0)throw new IllegalArgumentException("mag niet kleinder dan 0 zijn");
-            JOptionPane.showMessageDialog(null, shopui.producten.get(idx).getPrice(days));
-        }
+
+            JOptionPane.showMessageDialog(null,shopui.shop.showPrice(integerid, days));
+
     }
 }

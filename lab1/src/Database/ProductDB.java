@@ -17,5 +17,11 @@ public class ProductDB {
             if (p.getTitle().equals(product.getTitle()))throw new IllegalArgumentException("Dit item staat al in de lijst");
         }
         int intId = producten.size()+1;
+        producten.put(intId,product);
+    }
+
+    public Product showProduct(int index){
+
+        return producten.get(index);
     }
 }
