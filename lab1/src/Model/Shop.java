@@ -19,6 +19,10 @@ public class Shop {
         return producten.showProduct(index).toString();
     }
 
+    public ProductDB getProducten() {
+        return producten;
+    }
+
     public double showPrice(int id, int dagen){
         if (dagen < 0)throw new IllegalArgumentException("mag niet kleinder dan 0 zijn");
         return producten.showProduct(id).getPrice(dagen);

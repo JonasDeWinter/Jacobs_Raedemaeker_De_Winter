@@ -24,7 +24,7 @@ public class ShopUI {
         ShopUI shopui = new ShopUI();
 
         shopui.shop.load();
-        String menu = "1. Add product\n2. Show product\n3. Show rental price\n4. Show all products \n\n0. Quit";
+        String menu = "1. Add product\n2. Show product\n3. Show rental price\n4. Show all products\n5. breng boeken terug \n\n0. Quit";
         int choice = -1;
         while (choice != 0) {
             String choiceString = JOptionPane.showInputDialog(menu);
@@ -37,6 +37,8 @@ public class ShopUI {
                 showPrice(shopui);
             } else if (choice == 4){
                 showProducten(shopui);
+            }else if(choice == 5){
+                brengBoekTerug(shopui);
             }
         }
         shopui.shop.save();
@@ -62,7 +64,14 @@ public class ShopUI {
         String id = JOptionPane.showInputDialog("Enter the id:");
         int integerid = Integer.parseInt(id);
 
-            JOptionPane.showMessageDialog(null, shopui.shop.showProduct(integerid));
+
+        JOptionPane.showMessageDialog(null, shopui.shop.showProduct(integerid));
+        if(shopui.shop.getProducten().showProduct(integerid).getBeschikbaar()) {
+            String beschikbaarheid = JOptionPane.showInputDialog("wil je het product uitlenen(ja/nee)");
+            if (beschikbaarheid.equalsIgnoreCase("ja")) {
+                shopui.shop.getProducten().showProduct(integerid).wijzigBeschikbaar(false);
+            }
+        }
 
     }
 
@@ -80,5 +89,19 @@ public class ShopUI {
 
     public static void showProducten(ShopUI shopUI){
         JOptionPane.showMessageDialog(null, shopUI.shop.showProducten());
+    }
+
+    public static void brengBoekTerug(ShopUI shopui){
+        String id = JOptionPane.showInputDialog("Enter the id:");
+        int integerid = Integer.parseInt(id);
+
+
+        JOptionPane.showMessageDialog(null, shopui.shop.showProduct(integerid));
+        if(!shopui.shop.getProducten().showProduct(integerid).getBeschikbaar()) {
+            String beschikbaarheid = JOptionPane.showInputDialog("wil je het product terugbrengen(ja/nee)");
+            if (beschikbaarheid.equalsIgnoreCase("ja")) {
+                shopui.shop.getProducten().showProduct(integerid).wijzigBeschikbaar(true);
+            }
+        }
     }
 }
