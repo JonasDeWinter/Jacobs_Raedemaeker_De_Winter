@@ -1,9 +1,6 @@
 package view;
 
-import Model.Film;
-import Model.Game;
-import Model.Product;
-import Model.Shop;
+import Model.*;
 
 import java.util.ArrayList;
 
@@ -27,7 +24,7 @@ public class ShopUI {
         ShopUI shopui = new ShopUI();
 
         shopui.shop.load();
-        String menu = "1. Add product\n2. Show product\n3. Show rental price\n\n0. Quit";
+        String menu = "1. Add product\n2. Show product\n3. Show rental price\n4. Show all products \n\n0. Quit";
         int choice = -1;
         while (choice != 0) {
             String choiceString = JOptionPane.showInputDialog(menu);
@@ -38,6 +35,8 @@ public class ShopUI {
                 showProduct(shopui);
             } else if (choice == 3){
                 showPrice(shopui);
+            } else if (choice == 4){
+                showProducten(shopui);
             }
         }
         shopui.shop.save();
@@ -47,13 +46,15 @@ public class ShopUI {
         String title = JOptionPane.showInputDialog("Enter the title:");
         if (title.isEmpty())throw new IllegalArgumentException("titel mag niet leeg zijn");
 
-        String type = JOptionPane.showInputDialog("Enter the type (M for movie/G for game):");
-        if(!type.equals("M") && !type.equals("G"))throw new IllegalArgumentException("Moet G of M zijn");
+        String type = JOptionPane.showInputDialog("Enter the type (M for movie/G for game/C for CD):");
+        if(!type.equals("M") && !type.equals("G") && !type.equals("C"))throw new IllegalArgumentException("Moet G, M of C zijn");
 
         if(type.equalsIgnoreCase("M")){
             shopui.shop.addProduct(new Film(title));
-        }else{
+        }else if(type.equalsIgnoreCase("G")){
             shopui.shop.addProduct(new Game(title) );
+        }else{
+            shopui.shop.addProduct(new CD(title));
         }
     }
 
@@ -75,5 +76,9 @@ public class ShopUI {
 
             JOptionPane.showMessageDialog(null,shopui.shop.showPrice(integerid, days));
 
+    }
+
+    public static void showProducten(ShopUI shopUI){
+        JOptionPane.showMessageDialog(null, shopUI.shop.showProducten());
     }
 }
