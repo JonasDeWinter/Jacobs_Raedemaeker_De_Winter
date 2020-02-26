@@ -22,7 +22,6 @@ public class CaesarStrategy implements CodeerStrategy{
                 uitkomst += s;
             }
         }
-        System.out.println(uitkomst);
         return uitkomst;
     }
 
