@@ -35,7 +35,7 @@ public class CaesarStrategy implements CodeerStrategy{
             for(int j = 0; j< alfabet.length(); j++){
                 if(tekst.charAt(i) == (alfabet.charAt(j))){
                     if(j+3>25){
-                        uitkomst += alfabet.charAt(25-j);
+                        uitkomst += alfabet.charAt((j+3)-26);
                     }else {
                         uitkomst += alfabet.charAt(j + 3);
                     }
