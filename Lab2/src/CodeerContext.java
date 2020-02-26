@@ -16,10 +16,10 @@ public class CodeerContext {
     }
 
     public String encode(String tekst){
-        return tekst + " " + strategy.encode(tekst);
+        return tekst + "\n" + strategy.encode(tekst);
     }
 
     public String decode(String tekst) {
-        return tekst + " " + strategy.decode(tekst);
+        return tekst + "\n" + strategy.decode(tekst);
     }
 }
