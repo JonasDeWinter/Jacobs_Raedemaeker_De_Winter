@@ -1,3 +1,5 @@
+package Model;
+
 public class SpiegelingStrategy implements CodeerStrategy{
     @Override
     public String encode(String tekst) {

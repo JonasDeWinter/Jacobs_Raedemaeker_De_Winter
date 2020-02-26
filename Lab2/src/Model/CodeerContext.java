@@ -1,3 +1,5 @@
+package Model;
+
 public class CodeerContext {
     CodeerStrategy strategy;
     String tekst;

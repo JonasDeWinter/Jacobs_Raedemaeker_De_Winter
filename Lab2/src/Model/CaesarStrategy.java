@@ -1,3 +1,5 @@
+package Model;
+
 public class CaesarStrategy implements CodeerStrategy{
     private String alfabet = "abcdefghijklmnopqrstuvwxyz";
     @Override
