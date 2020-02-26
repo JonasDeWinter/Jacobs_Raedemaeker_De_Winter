@@ -10,10 +10,11 @@ public class CodeerStrategyUI {
         if (codeerStrategy.equalsIgnoreCase("1")){
             CodeerContext context = new CodeerContext(tekst,new CaesarStrategy());
             context.encode(tekst);
+            System.out.println(context.encode(tekst));
         }else if(codeerStrategy.equalsIgnoreCase("2")){
             CodeerContext context = new CodeerContext(tekst,new SpiegelingStrategy());
             context.encode(tekst);
+            System.out.println(context.encode(tekst));
         }
-        int codeerint = Integer.parseInt(codeerStrategy);
     }
 }

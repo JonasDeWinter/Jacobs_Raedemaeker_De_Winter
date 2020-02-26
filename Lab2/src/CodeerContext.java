@@ -16,14 +16,10 @@ public class CodeerContext {
     }
 
     public String encode(String tekst){
-        System.out.println(tekst);
-        System.out.println(strategy);
-        String string = strategy.encode(tekst);
-        System.out.println(string);
-        return strategy.encode(tekst);
+        return tekst + " " + strategy.encode(tekst);
     }
 
     public String decode(String tekst) {
-        return strategy.decode(tekst);
+        return tekst + " " + strategy.decode(tekst);
     }
 }
