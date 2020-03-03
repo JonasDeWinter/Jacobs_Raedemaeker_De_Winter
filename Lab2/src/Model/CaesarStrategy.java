@@ -2,6 +2,7 @@ package Model;
 
 public class CaesarStrategy implements CodeerStrategy{
     private String alfabet = "abcdefghijklmnopqrstuvwxyz";
+    private int offset;
     @Override
     public String encode(String tekst){
 
