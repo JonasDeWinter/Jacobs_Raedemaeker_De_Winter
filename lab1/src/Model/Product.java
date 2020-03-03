@@ -14,7 +14,7 @@ public abstract class Product {
 
     public String toString(){
         String result = this.title;
-        if (this.beschikbaar == true){
+        if (this.beschikbaar){
             result += "\n product is beschikbaar";
         }else{
             result += "\n product is onbeschikbaar";
