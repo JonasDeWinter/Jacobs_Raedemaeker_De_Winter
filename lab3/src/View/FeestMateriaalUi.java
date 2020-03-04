@@ -18,14 +18,13 @@ public class FeestMateriaalUi {
             choice = Integer.parseInt(choiceString);
             if(choice == 6){
                 showItems(data);
-            }else if(choice ==0) {
+            }else if(choice == 0) {
+            }else if (choice == 1) {
+                addItem(data);
             }else{
                 String idString = JOptionPane.showInputDialog("geef de id van het item");
                 int id = Integer.parseInt(idString);
                 switch (choice) {
-                    case 1:
-                        addItem(id, data);
-                        break;
                     case 2:
                         removeItem(id, data);
                         break;
@@ -47,12 +46,12 @@ public class FeestMateriaalUi {
 
     }
 
-    private static void addItem(int id,MateriaalDb data){
+    private static void addItem(MateriaalDb data){
         String itemnaam = JOptionPane.showInputDialog("geef de naam van het item");
         String AankoopPrijsString = JOptionPane.showInputDialog("geeft de aankoopprijs");
         double aankoopprijs = Double.parseDouble(AankoopPrijsString);
         Materiaal item = new Materiaal(itemnaam,aankoopprijs);
-        data.addItem(item,id);
+        data.addItem(item);
     }
 
     private static void removeItem(int id,MateriaalDb data){

@@ -16,11 +16,11 @@ public class MateriaalDb {
         feestArtikelen = new HashMap<>();
     }
 
-    public void addItem(Materiaal product, int id){
+    public void addItem(Materiaal product){
         for (Materiaal p:feestArtikelen.values()){
             if (p.getNaam().equals(product.getNaam()))throw new IllegalArgumentException("Dit item staat al in de lijst");
         }
-        feestArtikelen.put(id,product);
+        feestArtikelen.put(feestArtikelen.size()+1,product);
     }
 
     public void returnProduct(int index,boolean beschadiging){
@@ -93,7 +93,7 @@ public class MateriaalDb {
                 String prijsString = scannerline.next();
                 double prijs = Double.parseDouble(prijsString);
                 int id = Integer.parseInt(idString);
-                this.addItem(new Materiaal(titel,prijs),id);
+                this.addItem(new Materiaal(titel,prijs));
             }
         }catch(Exception e){
             throw new IllegalArgumentException("file niet gevonden", e);
