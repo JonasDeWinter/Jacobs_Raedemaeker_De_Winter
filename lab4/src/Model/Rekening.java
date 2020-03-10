@@ -13,6 +13,14 @@ public class Rekening {
         this.datum = datum;
     }
 
+    public void stortBedrag(double bedrag){
+        this.saldo += bedrag;
+    }
+
+    public void neemOp(double bedrag){
+        this.saldo -= bedrag;
+    }
+
     public double getSaldo() {
         return saldo;
     }
