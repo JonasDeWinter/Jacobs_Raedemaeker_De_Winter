@@ -156,11 +156,16 @@ public class Main extends Application {
             public void handle(ActionEvent event) {
                 String id = txtId.getText();
                 int integerid = Integer.parseInt(id);
-                lblResult.setText((shop.showProduct(integerid)));
-                if (shop.getProducten().showProduct(integerid).getBeschikbaar()) {
-                    btnNietUitlene.setVisible(true);
-                    btnUitlenen.setVisible(true);
+                try {
+                    lblResult.setText((shop.showProduct(integerid)));
+                    if (shop.getProducten().showProduct(integerid).getBeschikbaar()) {
+                        btnNietUitlene.setVisible(true);
+                        btnUitlenen.setVisible(true);
+                    }
+                }catch (NullPointerException n){
+                    lblResult.setText("Geen product met dit id");
                 }
+
             }
         }
 
@@ -216,13 +221,18 @@ public class Main extends Application {
         class ShowProductPriceHandler implements EventHandler<ActionEvent> {
             @Override
             public void handle(ActionEvent event) {
-                String id = txtId.getText();
-                int integerid = Integer.parseInt(id);
-                String days = txtDays.getText();
-                int integerDays = Integer.parseInt(days);
-                double result = shop.showPrice(integerid, integerDays);
-                lblReslt.setText(Double.toString(result));
-                lblReslt.setVisible(true);
+                try {
+                    String id = txtId.getText();
+                    int integerid = Integer.parseInt(id);
+                    String days = txtDays.getText();
+                    int integerDays = Integer.parseInt(days);
+                    double result = shop.showPrice(integerid, integerDays);
+                    lblReslt.setText(Double.toString(result));
+                    lblReslt.setVisible(true);
+                }catch (NullPointerException n){
+                    lblReslt.setText("Geen product met dit id");
+                    lblReslt.setVisible(true);
+                }
             }
         }
 
@@ -410,7 +420,6 @@ public class Main extends Application {
         public ExitHandler(Button btnExit) {
             btn = btnExit;
         }
-
         @Override
         public void handle(ActionEvent event) {
             Stage stage = (Stage) btn.getScene().getWindow();
