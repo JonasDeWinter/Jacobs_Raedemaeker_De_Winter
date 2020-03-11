@@ -1,7 +1,7 @@
 package model;
 
 public interface Subject {
-    public void registerObserver();
-    public void removeObserver();
-    public void notifyObservers();
+    void registerObserver(Observer observer);
+    void removeObserver(Observer observer);
+    void notifyObservers();
 }
