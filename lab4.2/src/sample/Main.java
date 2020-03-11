@@ -16,8 +16,6 @@ public class Main extends Application {
         PlayerView pv1 = new PlayerView(1,game);
 
         SpelersObserver sp1 = new SpelersObserver(game);
-        SpelersObserver sp2 = new SpelersObserver(game);
-        SpelersObserver sp3 = new SpelersObserver(game);
 
         game.addPlayer(pv2);
         game.addPlayer(pv3);

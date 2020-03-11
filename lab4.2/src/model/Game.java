@@ -30,13 +30,18 @@ public class Game implements Subject{
     }
 
     @Override
-    public void notifyObservers(PlayerView p) {
+    public void notifyObservers(ArrayList<PlayerView> spelers, PlayerView p, int getal1, int getal2) {
         for(Observer o: observers){
-            o.update(p);
+            o.update(spelers, p, getal1, getal2);
         }
     }
 
+
     public void addPlayer(PlayerView p){
         spelers.add(p);
+    }
+
+    public ArrayList<PlayerView> getSpelers() {
+        return spelers;
     }
 }

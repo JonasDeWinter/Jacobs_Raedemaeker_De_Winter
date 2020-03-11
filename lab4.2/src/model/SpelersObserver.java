@@ -3,6 +3,8 @@ package model;
 import javafx.scene.control.Label;
 import view.PlayerView;
 
+import java.util.ArrayList;
+
 public class SpelersObserver implements Observer {
     private Game game;
 
@@ -12,8 +14,13 @@ public class SpelersObserver implements Observer {
     }
 
     @Override
-    public void update(PlayerView playerView) {
-        playerView.setMessageLabel("test");
-        System.out.println("test");
+    public void update(ArrayList<PlayerView> spelers, PlayerView playerView, int getal1, int getal2) {
+        for (PlayerView p : spelers){
+            if (p.equals(playerView)){
+                p.setMessageLabel(getal1 + " " + getal2);
+            }
+
+        }
+
     }
 }
