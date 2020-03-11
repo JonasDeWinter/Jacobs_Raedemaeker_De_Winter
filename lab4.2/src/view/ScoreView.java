@@ -32,5 +32,8 @@ public class ScoreView {
 	private void voegScoreLijnToe(String scoreLijn){
 		scoreLabel.setText(scoreLabel.getText()+"\n"+scoreLijn);
 	}
+	private void voegScoreToe(String score){
+		scoreLabel.setText(scoreLabel.getText()+" "+score);
+	}
 	
 }
