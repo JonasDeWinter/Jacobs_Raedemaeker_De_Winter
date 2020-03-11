@@ -6,19 +6,24 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import model.Game;
 
 import java.util.Random;
 
-public class PlayerView  {
+public class PlayerView {
 	private Stage stage = new Stage();
 	private Scene playerScene;
 	private Label diceLabel; 
 	private Button playButton; 
-	private Label messageLabel; 
+	private Label messageLabel;
+	private PlayerView playerView;
 	
 	private int spelerNummer;
+	private Game game;
 	
-	public PlayerView(int spelerNummer){
+	public PlayerView(int spelerNummer, Game game){
+		playerView = this;
+		this.game = game;
 		this.spelerNummer = spelerNummer;
 		diceLabel = new Label("beurt 1: ");
 		playButton = new Button("Werp dobbelstenen");
@@ -47,16 +52,17 @@ public class PlayerView  {
 	}
 	
 	class ThrowDicesHandler implements EventHandler<ActionEvent> {
-        @Override
+		@Override
         public void handle(ActionEvent event) {
 			int randomdice1 = new Random().nextInt(6);
 			int randomdice2 = new Random().nextInt(6);
 			int totaal = randomdice1 + randomdice2;
 
+			game.notifyObservers(playerView);
         }
     }
 
-	public void setMessageLabel(Label messageLabel) {
-		this.messageLabel = messageLabel;
+	public void setMessageLabel(String tekst) {
+		playerView.messageLabel.setText(tekst);
 	}
 }

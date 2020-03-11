@@ -13,6 +13,7 @@ public class SpelersObserver implements Observer {
 
     @Override
     public void update(PlayerView playerView) {
-        playerView.setMessageLabel(new Label("test"));
+        playerView.setMessageLabel("test");
+        System.out.println("test");
     }
 }
