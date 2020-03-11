@@ -10,10 +10,8 @@ import java.util.Random;
 public class Game implements Subject{
     private ArrayList<PlayerView> spelers;
     private ArrayList<Observer> observers;
-    private PlayerView currentplayerview;
 
     public Game(){
-
         this.spelers = new ArrayList<>();
         this.observers = new ArrayList<>();
     }
@@ -39,22 +37,6 @@ public class Game implements Subject{
     }
 
     public void addPlayer(PlayerView p){
-        currentplayerview = p;
-        p.getPlayButton().setOnAction(new ThrowDicesHandler());
-
         spelers.add(p);
     }
-
-    class ThrowDicesHandler implements EventHandler<ActionEvent> {
-        @Override
-        public void handle(ActionEvent event) {
-            int randomdice1 = new Random().nextInt(6);
-            int randomdice2 = new Random().nextInt(6);
-            int totaal = randomdice1 + randomdice2;
-            System.out.println(randomdice1+ " " + randomdice2 + " " + totaal);
-            notifyObservers(currentplayerview);
-        }
-    }
-
-
 }
