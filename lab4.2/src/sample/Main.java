@@ -1,21 +1,18 @@
 package sample;
-
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
+import view.PlayerView;
+import view.ScoreView;
 
 public class Main extends Application {
-
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
+    public void start(Stage primaryStage) {
+        new ScoreView();
+        PlayerView pv3 = new PlayerView(3);
+        PlayerView pv2 = new PlayerView(2);
+        PlayerView pv1 = new PlayerView(1);
+        pv1.isAanBeurt(true);
     }
-
 
     public static void main(String[] args) {
         launch(args);
