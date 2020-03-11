@@ -17,9 +17,16 @@ public class SpelersObserver implements Observer {
     public void update(ArrayList<PlayerView> spelers, PlayerView playerView, int getal1, int getal2) {
         for (PlayerView p : spelers){
             if (p.equals(playerView)){
-                p.setMessageLabel(getal1 + " " + getal2);
+                p.isAanBeurt(false);
             }
-
+            if(p.getSpelerNummer() == playerView.getSpelerNummer() + 1){
+                p.isAanBeurt(true);
+            }else if(playerView.getSpelerNummer() == 3){
+                if(p.getSpelerNummer() == 1){
+                    p.isAanBeurt(true);
+                }
+            }
+            p.setMessageLabel(playerView.getSpelerNummer() + " heeft "+ getal1 + " " + getal2);
         }
 
     }

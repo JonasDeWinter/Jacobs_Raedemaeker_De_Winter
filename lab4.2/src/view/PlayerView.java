@@ -65,4 +65,8 @@ public class PlayerView {
 	public void setMessageLabel(String tekst) {
 		playerView.messageLabel.setText(tekst);
 	}
+
+	public int getSpelerNummer() {
+		return spelerNummer;
+	}
 }
