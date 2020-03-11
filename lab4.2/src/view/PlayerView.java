@@ -25,7 +25,7 @@ public class PlayerView  {
 		messageLabel = new Label("Spel nog niet gestart");
 		layoutComponents();
 		stage.setScene(playerScene);
-		stage.setTitle("Speler "+spelerNummer);
+		stage.setTitle("Speler "+ spelerNummer);
 		stage.setResizable(false);		
 		stage.setX(100+(spelerNummer-1) * 350);
 		stage.setY(200);

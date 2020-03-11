@@ -1,6 +1,6 @@
 package model;
 
-public class Speler1Observer implements Observer {
+public class SpelersObserver implements Observer {
     @Override
     public void update() {
 
