@@ -7,6 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.util.Random;
+
 public class PlayerView  {
 	private Stage stage = new Stage();
 	private Scene playerScene;
@@ -47,11 +49,17 @@ public class PlayerView  {
 	class ThrowDicesHandler implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent event) {
-            
+			int randomdice1 = new Random().nextInt(6);
+			int randomdice2 = new Random().nextInt(6);
+			int totaal = randomdice1 + randomdice2;
+
         }
     }
 
 	public void setMessageLabel(Label messageLabel) {
 		this.messageLabel = messageLabel;
+	}
+	public Button getPlayButton(){
+		return playButton;
 	}
 }
