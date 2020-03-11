@@ -11,8 +11,6 @@ public class Auditor implements Observer {
 
     }
 
-
-
     @Override
     public void update(ArrayList<Rekening>rekeningen, BankEnum bankEnum) {
         System.out.println((bank.getRekeningen().get(bank.getRekeningen().size()-1)).toString() + " " + bankEnum.toString());

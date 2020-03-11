@@ -50,4 +50,8 @@ public class PlayerView  {
             
         }
     }
+
+	public void setMessageLabel(Label messageLabel) {
+		this.messageLabel = messageLabel;
+	}
 }

@@ -1,5 +1,7 @@
 package model;
 
+import view.PlayerView;
+
 public interface Observer {
-    public void update();
+    public void update(PlayerView playerView);
 }
