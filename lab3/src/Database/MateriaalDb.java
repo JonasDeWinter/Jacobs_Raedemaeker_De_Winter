@@ -79,7 +79,6 @@ public class MateriaalDb {
                 }
             }
         }
-
     }
 
     public void load(){

@@ -1,12 +1,9 @@
 package View;
-
 import Database.MateriaalDb;
 import Model.Materiaal;
-
 import javax.swing.*;
 
 public class FeestMateriaalUi {
-
 
     public static void main(String[] args){
         MateriaalDb data = new MateriaalDb();
@@ -43,7 +40,6 @@ public class FeestMateriaalUi {
             }
         }
         data.save();
-
     }
 
     private static void addItem(MateriaalDb data){

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>Model</OriginalElement>
+  <nodes>
+    <node x="0.0" y="0.0">Model.CodeerEnum</node>
+    <node x="797.5" y="262.0">Model.CaesarStrategy</node>
+    <node x="328.5" y="294.0">Model.SpiegelingStrategy</node>
+    <node x="24.5" y="305.0">Model.CodeerFactory</node>
+    <node x="523.5" y="241.0">Model.CodeerContext</node>
+    <node x="590.9508928571428" y="472.0">View</node>
+    <node x="584.1339285714286" y="53.0">Model.CodeerStrategy</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Model.SpiegelingStrategy" target="Model.CodeerStrategy">
+      <point x="0.0" y="-37.5" />
+      <point x="416.0" y="211.0" />
+      <point x="617.9910714285713" y="211.0" />
+      <point x="-45.14285714285717" y="37.5" />
+    </edge>
+    <edge source="Model.CaesarStrategy" target="Model.CodeerStrategy">
+      <point x="0.0" y="-69.5" />
+      <point x="876.5" y="211.0" />
+      <point x="708.2767857142857" y="211.0" />
+      <point x="45.14285714285711" y="37.5" />
+    </edge>
+    <edge source="Model.CodeerFactory" target="Model.CodeerStrategy">
+      <point x="71.0" y="-26.5" />
+      <point x="237.5" y="201.0" />
+      <point x="595.4196428571429" y="201.0" />
+      <point x="-67.71428571428572" y="37.5" />
+    </edge>
+    <edge source="View" target="Model.CodeerStrategy">
+      <point x="43.5" y="-14.5" />
+      <point x="692.4508928571428" y="452.0" />
+      <point x="966.0" y="452.0" />
+      <point x="966.0" y="201.0" />
+      <point x="730.8482142857142" y="201.0" />
+      <point x="67.71428571428567" y="37.5" />
+    </edge>
+    <edge source="Model.CodeerContext" target="Model.CodeerStrategy">
+      <point x="-84.66666666666669" y="-90.5" />
+      <point x="565.8333333333333" y="221.0" />
+      <point x="640.5625" y="221.0" />
+      <point x="-22.571428571428555" y="37.5" />
+    </edge>
+    <edge source="View" target="Model.CodeerFactory">
+      <point x="-43.5" y="-14.5" />
+      <point x="605.4508928571428" y="452.0" />
+      <point x="166.5" y="452.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="View" target="Model.CodeerContext">
+      <point x="-14.5" y="-14.5" />
+      <point x="634.4508928571428" y="442.0" />
+      <point x="587.0" y="442.0" />
+      <point x="-63.5" y="90.5" />
+    </edge>
+    <edge source="Model.CodeerFactory" target="Model.CodeerEnum">
+      <point x="-71.0" y="-26.5" />
+      <point x="0.0" y="90.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="478.0" y="250.5" />
+  <SelectedNodes>
+    <node>View</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

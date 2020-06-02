@@ -54,11 +54,18 @@ public class PlayerView {
 	class ThrowDicesHandler implements EventHandler<ActionEvent> {
 		@Override
         public void handle(ActionEvent event) {
+			int totaal;
 			int randomdice1 = new Random().nextInt(5) + 1;
 			int randomdice2 = new Random().nextInt(5) + 1;
-			int totaal = randomdice1 + randomdice2;
 
-			game.notifyObservers(game.getSpelers(), playerView, randomdice1, randomdice2);
+			if	(randomdice1 == randomdice2){
+				totaal = (randomdice1 + randomdice2)*2;
+			}else{
+				totaal = randomdice1 + randomdice2;
+			}
+
+
+			game.notifyObservers(game.getSpelers(), playerView, game.getView(), randomdice1, randomdice2, totaal);
         }
     }
 
@@ -68,5 +75,9 @@ public class PlayerView {
 
 	public int getSpelerNummer() {
 		return spelerNummer;
+	}
+
+	public void setDiceLabel(String tekst) {
+		this.diceLabel.setText(tekst);
 	}
 }
